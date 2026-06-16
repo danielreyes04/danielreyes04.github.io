@@ -428,14 +428,235 @@ body {
 
 /* ── PRINT / PDF ── */
 @media print {
-  .topbar, .btn-download { display: none !important; }
-  body { background: white; color: #1a1a1a; }
-  .page { grid-template-columns: 240px 1fr; gap: 24px; }
-  .sidebar { position: static; }
-  :root {
-    --bg: white; --surface: #f1f5f9; --surface2: #e2e8f0;
-    --border: #cbd5e1; --accent: #0ea5e9; --text: #1e293b; --muted: #475569;
+  * {
+    -webkit-print-color-adjust: exact !important;
+    print-color-adjust: exact !important;
   }
+
+  @page {
+    margin: 14mm 12mm;
+    size: A4;
+  }
+
+  .topbar, .btn-download, .avatar-box { display: none !important; }
+
+  body {
+    background: #0a0e1a !important;
+    color: #e2e8f0 !important;
+    font-size: 12px;
+    line-height: 1.5;
+  }
+
+  /* ── HERO: horizontal compacto ── */
+  .hero {
+    display: flex !important;
+    flex-direction: column !important;
+    padding: 0 0 16px 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+    border-bottom: 1px solid #1e2d45;
+    gap: 8px !important;
+  }
+
+  .hero h1 {
+    font-size: 28px !important;
+    margin-bottom: 4px !important;
+  }
+
+  .hero-sub {
+    font-size: 12px !important;
+    margin-bottom: 8px !important;
+    max-width: 100% !important;
+  }
+
+  .hero-tag {
+    font-size: 10px !important;
+    margin-bottom: 6px !important;
+  }
+
+  .hero-links {
+    gap: 8px !important;
+  }
+
+  .pill {
+    font-size: 10px !important;
+    padding: 3px 10px !important;
+    background: #1a2235 !important;
+    border-color: #1e2d45 !important;
+  }
+
+  /* ── LAYOUT: una sola columna ── */
+  .page {
+    display: block !important;
+    padding: 0 !important;
+    margin: 0 !important;
+    max-width: 100% !important;
+  }
+
+  .sidebar {
+    position: static !important;
+    display: grid !important;
+    grid-template-columns: 1fr 1fr 1fr !important;
+    gap: 10px !important;
+    margin: 14px 0 !important;
+    border-bottom: 1px solid #1e2d45;
+    padding-bottom: 14px;
+  }
+
+  .card {
+    background: #111827 !important;
+    border: 1px solid #1e2d45 !important;
+    border-radius: 8px !important;
+    padding: 12px !important;
+    margin-bottom: 0 !important;
+    break-inside: avoid !important;
+  }
+
+  .card-title {
+    font-size: 9px !important;
+    margin-bottom: 8px !important;
+  }
+
+  .contact-row {
+    font-size: 11px !important;
+    margin-bottom: 5px !important;
+  }
+
+  .contact-row svg { width: 11px !important; height: 11px !important; }
+
+  .skill-group { margin-bottom: 8px !important; }
+  .skill-group-label { font-size: 9px !important; margin-bottom: 4px !important; }
+
+  .skill-tags { gap: 3px !important; }
+
+  .tag {
+    font-size: 9px !important;
+    padding: 2px 5px !important;
+    background: #1a2235 !important;
+    border-color: #1e2d45 !important;
+  }
+  .tag.cyan   { border-color: rgba(0,212,255,0.4) !important; color: #00d4ff !important; }
+  .tag.purple { border-color: rgba(124,58,237,0.4) !important; color: #a78bfa !important; }
+  .tag.green  { border-color: rgba(16,185,129,0.4) !important; color: #34d399 !important; }
+
+  .lang-row { font-size: 11px !important; margin-bottom: 4px !important; }
+  .lang-dot { background: #1e2d45 !important; }
+  .lang-dot.on { background: #00d4ff !important; }
+
+  /* ── SECCIONES ── */
+  .section { margin-bottom: 14px !important; }
+
+  .section-head { margin-bottom: 8px !important; }
+  .section-head h2 { font-size: 11px !important; }
+  .section-num { font-size: 10px !important; }
+  .section-line { background: #1e2d45 !important; }
+
+  .profile-text {
+    background: #111827 !important;
+    border-color: #1e2d45 !important;
+    border-left-color: #00d4ff !important;
+    font-size: 12px !important;
+    padding: 12px 16px !important;
+    line-height: 1.7 !important;
+    break-inside: avoid !important;
+  }
+
+  /* ── PROYECTOS en 2 columnas ── */
+  .section:nth-child(2) main,
+  .project-card + .project-card { break-before: avoid !important; }
+
+  .project-card {
+    background: #111827 !important;
+    border: 1px solid #1e2d45 !important;
+    padding: 12px 14px 10px 16px !important;
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+    break-inside: avoid !important;
+  }
+
+  .project-card::before { width: 3px !important; }
+  .project-card.cyber::before { background: #00d4ff !important; }
+  .project-card.data::before  { background: #7c3aed !important; }
+  .project-card.eda::before   { background: #10b981 !important; }
+
+  .project-name { font-size: 13px !important; }
+
+  .project-type {
+    font-size: 8px !important;
+    padding: 2px 6px !important;
+  }
+  .project-type.cyber { background: rgba(0,212,255,0.1) !important; color: #00d4ff !important; border-color: rgba(0,212,255,0.2) !important; }
+  .project-type.data  { background: rgba(124,58,237,0.1) !important; color: #a78bfa !important; border-color: rgba(124,58,237,0.2) !important; }
+  .project-type.eda   { background: rgba(16,185,129,0.1) !important; color: #34d399 !important; border-color: rgba(16,185,129,0.2) !important; }
+
+  .project-desc {
+    font-size: 11px !important;
+    margin-bottom: 6px !important;
+    color: #64748b !important;
+  }
+
+  .project-bullets li {
+    font-size: 11px !important;
+    padding: 1px 0 1px 14px !important;
+    color: #94a3b8 !important;
+  }
+
+  .project-link {
+    font-size: 10px !important;
+    margin-top: 6px !important;
+    color: #00d4ff !important;
+  }
+
+  /* ── EXPERIENCIA Y EDUCACIÓN ── */
+  .exp-card {
+    background: #111827 !important;
+    border: 1px solid #1e2d45 !important;
+    padding: 12px 14px !important;
+    margin-bottom: 8px !important;
+    border-radius: 8px !important;
+    break-inside: avoid !important;
+  }
+
+  .exp-role { font-size: 13px !important; }
+  .exp-date { font-size: 10px !important; }
+  .exp-company { font-size: 11px !important; margin-bottom: 6px !important; color: #00d4ff !important; }
+
+  .exp-bullets li {
+    font-size: 11px !important;
+    padding: 1px 0 1px 12px !important;
+    color: #64748b !important;
+  }
+
+  /* ── CERTIFICACIONES en 2 columnas ── */
+  .cert-grid {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 8px !important;
+  }
+
+  .cert-card {
+    background: #111827 !important;
+    border: 1px solid #1e2d45 !important;
+    padding: 10px 12px !important;
+    border-radius: 8px !important;
+    break-inside: avoid !important;
+  }
+
+  .cert-issuer { font-size: 9px !important; color: #00d4ff !important; }
+  .cert-name   { font-size: 11px !important; }
+  .cert-date   { font-size: 10px !important; }
+
+  /* ── FOOTER ── */
+  .footer {
+    font-size: 10px !important;
+    padding: 12px 0 0 !important;
+    margin-top: 8px !important;
+    border-top: 1px solid #1e2d45 !important;
+  }
+
+  /* ocultar la cert card de "en progreso" */
+  .cert-card[style*="dashed"] { display: none !important; }
+
+  a { color: #00d4ff !important; }
 }
 
 /* ── RESPONSIVE ── */
