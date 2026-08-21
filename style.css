@@ -90,6 +90,19 @@ body {
   height: 1px;
   background: var(--accent);
 }
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background: #10b981;
+  border-radius: 50%;
+  display: inline-block;
+  box-shadow: 0 0 6px rgba(16,185,129,0.8);
+  animation: pulseDot 2s infinite;
+}
+@keyframes pulseDot {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(0.8); opacity: 0.6; }
+}
 .hero h1 {
   font-size: clamp(36px, 5vw, 56px);
   font-weight: 600;
@@ -210,7 +223,8 @@ body {
   font-size: 11px;
   color: var(--text);
 }
-.tag.cyan  { border-color: rgba(0,212,255,0.3); color: var(--accent); }
+.tag.cyan   { border-color: rgba(0,212,255,0.3); color: var(--accent); }
+.tag.orange { border-color: rgba(255,153,0,0.35); color: #ff9900; }
 .tag.purple { border-color: rgba(124,58,237,0.3); color: #a78bfa; }
 .tag.green  { border-color: rgba(16,185,129,0.3); color: #34d399; }
 
@@ -536,6 +550,7 @@ body {
     border-color: #1e2d45 !important;
   }
   .tag.cyan   { border-color: rgba(0,212,255,0.4) !important; color: #00d4ff !important; }
+  .tag.orange { border-color: rgba(255,153,0,0.4) !important; color: #ff9900 !important; }
   .tag.purple { border-color: rgba(124,58,237,0.4) !important; color: #a78bfa !important; }
   .tag.green  { border-color: rgba(16,185,129,0.4) !important; color: #34d399 !important; }
 
