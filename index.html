@@ -1,706 +1,337 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Reyes Pinilla | Portafolio Profesional</title>
-  <meta name="description"
-    content="Portafolio de Daniel Steven Reyes Pinilla. Estudiante de Ciencias de la Computación e Inteligencia Artificial. Ciberseguridad, Cloud AWS (EC2, Cloud9, RDS) y Ciencia de Datos.">
-  <meta name="keywords"
-    content="Daniel Reyes, Portafolio, Ciberseguridad, AWS, Cloud Computing, EC2, Cloud9, RDS, Data Science, Python, Prácticas profesionales">
+  <title>Daniel Reyes </title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600;700&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap"
-    rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
 
-  <!-- BACKGROUND AMBIENT GLOW -->
-  <div class="bg-glow bg-glow-1"></div>
-  <div class="bg-glow bg-glow-2"></div>
-  <div class="grid-overlay"></div>
+<!-- TOP BAR -->
+<nav class="topbar">
+  <div class="topbar-logo">dr<span>@</span>portfolio<span>:~$</span></div>
+  <button class="btn-download" onclick="downloadPDF()">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
+    Descargar PDF
+  </button>
+</nav>
 
-  <!-- TOP BAR -->
-  <nav class="topbar">
-    <div class="topbar-logo">
-      <span class="prompt-user">dr</span><span class="prompt-at">@</span><span class="prompt-host">portfolio</span><span
-        class="prompt-sep">:~$</span>
-      <span class="cursor-blink">_</span>
-    </div>
-    <div class="topbar-actions">
-      <button class="btn-action btn-copy-email" onclick="copyEmail(this)" title="Copiar correo electrónico">
+<!-- HERO -->
+<header class="hero">
+  <div>
+    <div class="hero-tag">Disponible para prácticas · Bogotá, Colombia</div>
+    <h1>Daniel <span class="dim">Steven</span><br>Reyes Pinilla</h1>
+    <p class="hero-sub">Inegiero en proceso de Ciencias de la Computación e inteligencia artifivcial (9° semestre, Universidad Sergio Arboleda) apasionado por la seguridad informática y la ciencia de datos. Construyo herramientas reales, analizo datos, y aprendo haciendo.</p>
+    <div class="hero-links">
+      <a class="pill" href="https://github.com/danielreyes04" target="_blank">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        danielreyes04
+      </a>
+      <a class="pill" href="mailto:dr8836712@gmail.com">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+        dr8836712@gmail.com
+      </a>
+      <a class="pill" href="tel:3132979103">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <rect x="9" y="9" width="13" height="13" rx="2" ry="2"></rect>
-          <path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
         </svg>
-        <span>Copiar Correo</span>
-      </button>
-      <button class="btn-download" onclick="downloadPDF()">
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-          <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3" />
-        </svg>
-        <span>Descargar CV</span>
-      </button>
+          3132979103
+      </a>
+      <span class="pill">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+        9° Semestre · U. Sergio Arboleda
+      </span>
     </div>
-  </nav>
-
-  <!-- HERO -->
-  <header class="hero">
-    <div class="hero-content">
-      <div class="hero-tag">
-        <span class="pulse-dot"></span>
-        Disponible para prácticas profesionales · Bogotá, Colombia
-      </div>
-      <h1 class="hero-title">
-        Daniel <span class="dim">Steven</span><br>
-        <span class="gradient-text">Reyes Pinilla</span>
-      </h1>
-      <p class="hero-sub">
-        Estudiante de 9° semestre de <strong>Ingeniería en Ciencias de la Computación e Inteligencia Artificial</strong>
-        (Universidad Sergio Arboleda). Enfocado en <strong>Cloud Computing (AWS)</strong>,
-        <strong>Ciberseguridad</strong> y <strong>Ciencia de Datos</strong>. Construyo soluciones prácticas, automatizo
-        infraestructura y resuelvo problemas con código.
-      </p>
-      <div class="hero-links">
-        <a class="pill pill-github" href="https://github.com/danielreyes04" target="_blank" rel="noopener noreferrer">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-          </svg>
-          <span>github.com/danielreyes04</span>
-        </a>
-        <a class="pill pill-email" href="mailto:dr8836712@gmail.com">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <rect x="2" y="4" width="20" height="16" rx="2" />
-            <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" />
-          </svg>
-          <span>dr8836712@gmail.com</span>
-        </a>
-        <a class="pill pill-phone" href="tel:3132979103">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-          </svg>
-          <span>+57 313 297 9103</span>
-        </a>
-        <span class="pill pill-badge">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10" />
-            <polyline points="12 6 12 12 16 14" />
-          </svg>
-          <span>9° Semestre · U. Sergio Arboleda</span>
-        </span>
-        <span class="pill pill-aws">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M17.5 19H9a7 7 0 1 1 6.71-9h1.79a4.5 4.5 0 1 1 0 9Z" />
-          </svg>
-          <span>AWS Cloud Practitioner Track</span>
-        </span>
-      </div>
-    </div>
-
-    <div class="avatar-container">
-      <div class="avatar-box">
-        <img src="Daniel.jpeg" alt="Foto de Daniel Steven Reyes Pinilla" class="avatar-img">
-        <div class="avatar-glow"></div>
-      </div>
-      <div class="avatar-status-badge">
-        <span class="pulse-dot-sm"></span>
-        <span>Activo</span>
-      </div>
-    </div>
-  </header>
-
-  <!-- MAIN GRID -->
-  <div class="page">
-
-    <!-- SIDEBAR -->
-    <aside class="sidebar">
-
-      <!-- CONTACT CARD -->
-      <div class="card card-contact">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path
-              d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-          </svg>
-          Contacto
-        </div>
-        <div class="contact-list">
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
-              <circle cx="12" cy="10" r="3" />
-            </svg>
-            <span>Bogotá D.C., Colombia</span>
-          </div>
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <rect x="2" y="4" width="20" height="16" rx="2" />
-              <path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7" />
-            </svg>
-            <a href="mailto:dr8836712@gmail.com">dr8836712@gmail.com</a>
-          </div>
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z" />
-            </svg>
-            <a href="https://github.com/danielreyes04" target="_blank"
-              rel="noopener noreferrer">github.com/danielreyes04</a>
-          </div>
-          <div class="contact-row">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path
-                d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" />
-            </svg>
-            <a href="tel:3132979103">+57 313 297 9103</a>
-          </div>
-        </div>
-        <a href="https://wa.me/573132979103" target="_blank" rel="noopener noreferrer" class="btn-whatsapp">
-          <svg viewBox="0 0 24 24" fill="currentColor">
-            <path
-              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.462-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z" />
-          </svg>
-          <span>Escribir por WhatsApp</span>
-        </a>
-      </div>
-
-      <!-- SKILLS CARD -->
-      <div class="card card-skills">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <path d="M12 2v20M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6" />
-          </svg>
-          Habilidades Técnicas
-        </div>
-
-        <!-- CLOUD & AWS (HIGHLIGHTED) -->
-        <div class="skill-group">
-          <div class="skill-group-label skill-aws-label">
-            <span class="label-dot aws-dot"></span> Cloud & AWS
-          </div>
-          <div class="skill-tags">
-            <span class="tag aws">AWS EC2</span>
-            <span class="tag aws">AWS Cloud9</span>
-            <span class="tag aws">Amazon RDS</span>
-            <span class="tag aws">Amazon S3</span>
-            <span class="tag aws">AWS IAM</span>
-            <span class="tag aws">CloudWatch</span>
-          </div>
-        </div>
-
-        <!-- LENGUAJES -->
-        <div class="skill-group">
-          <div class="skill-group-label">
-            <span class="label-dot cyan-dot"></span> Lenguajes & Scripting
-          </div>
-          <div class="skill-tags">
-            <span class="tag cyan">Python</span>
-            <span class="tag cyan">Bash / Shell</span>
-            <span class="tag cyan">SQL</span>
-            <span class="tag cyan">C++</span>
-          </div>
-        </div>
-
-        <!-- CIBERSEGURIDAD -->
-        <div class="skill-group">
-          <div class="skill-group-label">
-            <span class="label-dot blue-dot"></span> Ciberseguridad & Redes
-          </div>
-          <div class="skill-tags">
-            <span class="tag">Análisis de Logs</span>
-            <span class="tag">Detección de Anomalías</span>
-            <span class="tag">Seguridad en Redes</span>
-            <span class="tag">Linux Hardening</span>
-            <span class="tag">Soporte N2</span>
-          </div>
-        </div>
-
-        <!-- CIENCIA DE DATOS -->
-        <div class="skill-group">
-          <div class="skill-group-label">
-            <span class="label-dot purple-dot"></span> Ciencia de Datos & ML
-          </div>
-          <div class="skill-tags">
-            <span class="tag purple">Pandas</span>
-            <span class="tag purple">NumPy</span>
-            <span class="tag purple">Scikit-Learn</span>
-            <span class="tag purple">Matplotlib / Seaborn</span>
-            <span class="tag purple">Jupyter Notebooks</span>
-          </div>
-        </div>
-
-        <!-- HERRAMIENTAS & SISTEMAS -->
-        <div class="skill-group">
-          <div class="skill-group-label">
-            <span class="label-dot green-dot"></span> Herramientas & SO
-          </div>
-          <div class="skill-tags">
-            <span class="tag green">Git & GitHub</span>
-            <span class="tag green">Linux (Arch / Ubuntu)</span>
-            <span class="tag green">Windows Server</span>
-            <span class="tag green">VS Code</span>
-          </div>
-        </div>
-      </div>
-
-      <!-- IDIOMAS CARD -->
-      <div class="card card-lang">
-        <div class="card-title">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-            <circle cx="12" cy="12" r="10" />
-            <line x1="2" y1="12" x2="22" y2="12" />
-            <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
-          </svg>
-          Idiomas
-        </div>
-        <div class="lang-row">
-          <span class="lang-name">Español</span>
-          <div class="lang-level" title="Nivel Nativo">
-            <div class="lang-dot on"></div>
-            <div class="lang-dot on"></div>
-            <div class="lang-dot on"></div>
-            <div class="lang-dot on"></div>
-            <div class="lang-dot on"></div>
-          </div>
-        </div>
-        <div class="lang-sub">Nativo</div>
-
-        <div class="lang-row">
-          <span class="lang-name">Inglés</span>
-          <div class="lang-level" title="Nivel B1 Intermedio">
-            <div class="lang-dot on"></div>
-            <div class="lang-dot on"></div>
-            <div class="lang-dot on"></div>
-            <div class="lang-dot"></div>
-            <div class="lang-dot"></div>
-          </div>
-        </div>
-        <div class="lang-sub">B1 — Certificado por U. Sergio Arboleda</div>
-      </div>
-
-    </aside>
-
-    <!-- MAIN CONTENT -->
-    <main class="main-content">
-
-      <!-- 01 PERFIL -->
-      <section class="section">
-        <div class="section-head">
-          <span class="section-num">01</span>
-          <h2>Perfil Profesional</h2>
-          <div class="section-line"></div>
-        </div>
-        <div class="profile-box">
-          <p>
-            Estudiante de 9° semestre de <strong>Ingeniería en Ciencias de la Computación e Inteligencia
-              Artificial</strong> con sólida base práctica en soporte técnico de nivel 2, administración de sistemas
-            Linux/Windows, infraestructura cloud en <strong>AWS (EC2, Cloud9, RDS, IAM, S3)</strong> y proyectos
-            aplicados en ciberseguridad y ciencia de datos.
-          </p>
-          <p>
-            Cuento con experiencia en análisis forense y detección de anomalías en logs, despliegue de bases de datos
-            relacionales en la nube, y entrenamiento de modelos de machine learning para problemas de negocio reales.
-            Busco incorporarme como <strong>practicante profesional</strong> en áreas de <strong>Cloud Computing /
-              DevOps Jr</strong>, <strong>Ciberseguridad / SOC</strong> o <strong>Ciencia de Datos</strong>, aportando
-            compromiso, rigor técnico, capacidad de automatización y constante deseo de aprendizaje en entornos
-            productivos.
-          </p>
-        </div>
-      </section>
-
-      <!-- 02 PROYECTOS -->
-      <section class="section">
-        <div class="section-head">
-          <span class="section-num">02</span>
-          <h2>Proyectos Destacados</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <!-- PROJECT FILTERS -->
-        <div class="project-filters">
-          <button class="filter-btn active" onclick="filterProjects('all')">Todos</button>
-          <button class="filter-btn" onclick="filterProjects('cloud')">Cloud / AWS</button>
-          <button class="filter-btn" onclick="filterProjects('cyber')">Ciberseguridad</button>
-          <button class="filter-btn" onclick="filterProjects('data')">Data Science</button>
-        </div>
-
-        <div class="projects-grid">
-
-          <!-- PROYECTO 1: AWS CLOUD -->
-          <article class="project-card cloud" data-category="cloud">
-            <div class="project-header">
-              <div>
-                <h3 class="project-name">Despliegue & Arquitectura Cloud en AWS</h3>
-                <span class="project-subtitle">Infraestructura IaaS / PaaS, Bases de Datos & Entornos de
-                  Desarrollo</span>
-              </div>
-              <span class="project-type cloud">Cloud / AWS</span>
-            </div>
-            <p class="project-desc">
-              Implementación práctica de arquitecturas en la nube de Amazon Web Services, integrando cómputo escalable,
-              bases de datos gestionadas y entornos de codificación remota colaborativa.
-            </p>
-            <ul class="project-bullets">
-              <li><strong>Amazon EC2 & Cloud9:</strong> Provisión y configuración de instancias Linux con Security
-                Groups específicos, pares de claves SSH y desarrollo en IDE basado en la nube con AWS Cloud9.</li>
-              <li><strong>Amazon RDS:</strong> Creación, parametrización y conexión segura de instancias de bases de
-                datos relacionales (MySQL/PostgreSQL) aisladas en subredes privadas.</li>
-              <li><strong>Seguridad & Monitoreo:</strong> Implementación de políticas de control de acceso con
-                <strong>AWS IAM</strong> y configuración de alertas de consumo/rendimiento con
-                <strong>CloudWatch</strong>.</li>
-            </ul>
-            <div class="project-tags-footer">
-              <span class="mini-tag aws">AWS EC2</span>
-              <span class="mini-tag aws">AWS Cloud9</span>
-              <span class="mini-tag aws">Amazon RDS</span>
-              <span class="mini-tag aws">IAM & S3</span>
-              <span class="mini-tag">Linux</span>
-            </div>
-          </article>
-
-          <!-- PROYECTO 2: LOG ANALYZER -->
-          <article class="project-card cyber" data-category="cyber">
-            <div class="project-header">
-              <div>
-                <h3 class="project-name">Log Analyzer — Detección de Amenazas</h3>
-                <span class="project-subtitle">Herramienta automatizada en Python para análisis de logs del
-                  sistema</span>
-              </div>
-              <span class="project-type cyber">Ciberseguridad</span>
-            </div>
-            <p class="project-desc">
-              Herramienta desarrollada en Python para el procesamiento, filtrado y análisis automatizado de archivos de
-              log de servidores y sistemas operativos, orientada a la detección temprana de incidentes de seguridad.
-            </p>
-            <ul class="project-bullets">
-              <li>Parseo inteligente de registros para identificar intentos de autenticación no autorizados, ataques de
-                fuerza bruta y comportamientos anómalos.</li>
-              <li>Correlación de eventos temporales y cálculo de frecuencias de accesos sospechosos por dirección IP.
-              </li>
-              <li>Generación de reportes estructurados con clasificación de severidad para respuesta a incidentes.</li>
-            </ul>
-            <div class="project-footer">
-              <div class="project-tags-footer">
-                <span class="mini-tag cyan">Python</span>
-                <span class="mini-tag">Regex</span>
-                <span class="mini-tag">Syslog</span>
-                <span class="mini-tag">Seguridad</span>
-              </div>
-              <a class="project-link" href="https://github.com/danielreyes04/Log-Analyzer" target="_blank"
-                rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                </svg>
-                <span>Ver repositorio</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- PROYECTO 3: TELECOM DATA ANALYSIS -->
-          <article class="project-card data" data-category="data">
-            <div class="project-header">
-              <div>
-                <h3 class="project-name">Telecom Customer Churn & Data Analysis</h3>
-                <span class="project-subtitle">Modelado predictivo y segmentación para reducción de abandono de
-                  clientes</span>
-              </div>
-              <span class="project-type data">Data Science</span>
-            </div>
-            <p class="project-desc">
-              Análisis integral de datos sobre el comportamiento de usuarios de telecomunicaciones para identificar
-              variables críticas que impulsan la deserción de clientes e implementar modelos de clasificación.
-            </p>
-            <ul class="project-bullets">
-              <li>Limpieza avanzada, tratamiento de valores nulos y codificación de variables categóricas con Pandas y
-                NumPy.</li>
-              <li>Entrenamiento y evaluación de algoritmos de clasificación supervisada para predecir la probabilidad de
-                churn.</li>
-              <li>Visualización ejecutiva de métricas clave y patrones demográficos con Matplotlib y Seaborn.</li>
-            </ul>
-            <div class="project-footer">
-              <div class="project-tags-footer">
-                <span class="mini-tag purple">Python</span>
-                <span class="mini-tag purple">Pandas</span>
-                <span class="mini-tag purple">Scikit-Learn</span>
-                <span class="mini-tag purple">Seaborn</span>
-              </div>
-              <a class="project-link" href="https://github.com/danielreyes04/Telecom_customer_data_analysis"
-                target="_blank" rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                </svg>
-                <span>Ver repositorio</span>
-              </a>
-            </div>
-          </article>
-
-          <!-- PROYECTO 4: EDA -->
-          <article class="project-card eda" data-category="data">
-            <div class="project-header">
-              <div>
-                <h3 class="project-name">Análisis Exploratorio de Datos (EDA)</h3>
-                <span class="project-subtitle">Pipelines de transformación estadística y visualización
-                  reproducible</span>
-              </div>
-              <span class="project-type eda">Data Science</span>
-            </div>
-            <p class="project-desc">
-              Pipeline estructurado en Jupyter Notebooks para la ingesta, estandarización de features, detección de
-              outliers y análisis de correlación multivariable sobre conjuntos de datos multidimensionales.
-            </p>
-            <ul class="project-bullets">
-              <li>Transformación y normalización de variables numéricas para optimizar el rendimiento de modelos
-                analíticos.</li>
-              <li>Detección sistemática de valores atípicos y análisis de correlación lineal y no lineal.</li>
-              <li>Estructuración de flujos de análisis reproducibles y documentados con conclusiones estadísticas
-                claras.</li>
-            </ul>
-            <div class="project-footer">
-              <div class="project-tags-footer">
-                <span class="mini-tag purple">Jupyter</span>
-                <span class="mini-tag purple">EDA</span>
-                <span class="mini-tag purple">NumPy</span>
-                <span class="mini-tag purple">Matplotlib</span>
-              </div>
-              <a class="project-link" href="https://github.com/danielreyes04/Analsis-de-datos" target="_blank"
-                rel="noopener noreferrer">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3" />
-                </svg>
-                <span>Ver repositorio</span>
-              </a>
-            </div>
-          </article>
-
-        </div>
-      </section>
-
-      <!-- 03 EXPERIENCIA -->
-      <section class="section">
-        <div class="section-head">
-          <span class="section-num">03</span>
-          <h2>Experiencia Laboral</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="exp-timeline">
-
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role">Técnico de Soporte — Nivel 2</h3>
-                <div class="exp-company">Pear Solutions SAS · Bogotá, Colombia</div>
-              </div>
-              <span class="exp-date">Dic 2024 – Feb 2025</span>
-            </div>
-            <ul class="exp-bullets">
-              <li>Atención a usuarios finales como agente Nivel 2 en mesa de ayuda para resolución de incidencias
-                complejas.</li>
-              <li>Instalación, aprovisionamiento y configuración de software, hardware y despliegue de imágenes de
-                sistemas operativos.</li>
-              <li>Mantenimiento preventivo y correctivo de estaciones de trabajo y periféricos corporativos.</li>
-              <li>Diagnóstico y resolución de incidencias en redes locales, servidores e infraestructura de impresión
-                con entrega de informes técnicos de gestión.</li>
-            </ul>
-          </div>
-
-          <div class="exp-card">
-            <div class="exp-header">
-              <div>
-                <h3 class="exp-role">Técnico de Equipos Informáticos & Desarrollador</h3>
-                <div class="exp-company">Odontoestética Dra. Xiomara Reyes · Bogotá, Colombia</div>
-              </div>
-              <span class="exp-date">Ene 2023 – Oct 2024</span>
-            </div>
-            <ul class="exp-bullets">
-              <li>Mantenimiento general, formateo, securización y borrado seguro de datos en equipos de cómputo de la
-                clínica.</li>
-              <li>Desarrollo y soporte técnico continuo de la aplicación <strong>ODONTOSAM</strong>, sistema digital
-                para la gestión de citas y archivo de historias clínicas.</li>
-              <li>Administración de copias de seguridad de datos de pacientes y soporte operativo al personal.</li>
-            </ul>
-          </div>
-
-        </div>
-      </section>
-
-      <!-- 04 EDUCACIÓN -->
-      <section class="section">
-        <div class="section-head">
-          <span class="section-num">04</span>
-          <h2>Educación Superior</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="exp-card edu-card">
-          <div class="exp-header">
-            <div>
-              <h3 class="exp-role">Ingeniería en Ciencias de la Computación e Inteligencia Artificial</h3>
-              <div class="exp-company">Universidad Sergio Arboleda · Bogotá, Colombia</div>
-            </div>
-            <span class="exp-date badge-highlight">9° Semestre · En curso</span>
-          </div>
-          <ul class="exp-bullets">
-            <li>Énfasis en Cloud Computing, Seguridad Informática, Arquitectura de Sistemas Operativos y Ciencia de
-              Datos.</li>
-            <li>Desarrollo de proyectos académicos avanzados en Python, gestión de infraestructura en Linux y despliegue
-              en la nube.</li>
-          </ul>
-        </div>
-      </section>
-
-      <!-- 05 CERTIFICACIONES Y CURSOS -->
-      <section class="section">
-        <div class="section-head">
-          <span class="section-num">05</span>
-          <h2>Certificaciones & Cursos</h2>
-          <div class="section-line"></div>
-        </div>
-
-        <div class="cert-grid">
-
-          <!-- AWS TRACK -->
-          <div class="cert-card cert-aws">
-            <div class="cert-badge-top">Cloud Computing</div>
-            <div class="cert-issuer">AWS Academy / Formación Cloud</div>
-            <div class="cert-name">Fundamentos de AWS (EC2, Cloud9, RDS, S3, IAM)</div>
-            <div class="cert-date">2026 · En progreso hacia Cloud Practitioner</div>
-          </div>
-
-          <!-- CISCO -->
-          <div class="cert-card">
-            <div class="cert-badge-top">Data Science</div>
-            <div class="cert-issuer">Cisco Networking Academy · U. Sergio Arboleda</div>
-            <div class="cert-name">Data Science Essentials with Python</div>
-            <div class="cert-date">Noviembre 2025</div>
-          </div>
-
-          <!-- DATACAMP -->
-          <div class="cert-card">
-            <div class="cert-badge-top">Programación</div>
-            <div class="cert-issuer">DataCamp</div>
-            <div class="cert-name">Python Intermedio</div>
-            <div class="cert-date">Enero 2026</div>
-          </div>
-
-          <!-- INGLÉS B1 -->
-          <div class="cert-card">
-            <div class="cert-badge-top">Idiomas</div>
-            <div class="cert-issuer">Universidad Sergio Arboleda — Centro de Idiomas</div>
-            <div class="cert-name">Certificación de Inglés Nivel B1</div>
-            <div class="cert-date">Diciembre 2025</div>
-          </div>
-
-        </div>
-      </section>
-
-    </main>
   </div>
+  <div class="avatar-box">
+    <img src="Daniel.jpeg" alt="Daniel Reyes" style="width:100%;height:100%;object-fit:cover;border-radius:50%;">
+  </div>
+</header>
 
-  <!-- FOOTER -->
-  <footer class="footer">
-    <div class="footer-content">
-      <div class="footer-left">
-        <span class="footer-name">Daniel Steven Reyes Pinilla</span> · <span>Bogotá, Colombia</span>
+<!-- MAIN GRID -->
+<div class="page">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+
+    <div class="card">
+      <div class="card-title">Contacto</div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        Bogotá D.C., Colombia
       </div>
-      <div class="footer-right">
-        <span class="footer-status"><span class="pulse-dot-xs"></span> Disponible para inicio inmediato de
-          prácticas</span>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 01-2.06 0L2 7"/></svg>
+        <a href="mailto:dr8836712@gmail.com">dr8836712@gmail.com</a>
+      </div>
+      <div class="contact-row">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
+        <a href="https://github.com/danielreyes04" target="_blank">github.com/danielreyes04</a>
+      </div>
+      <div class="contact-row">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/>
+          </svg>
+            <a href="tel:3132979103">3132979103</a>
       </div>
     </div>
-  </footer>
 
-  <!-- TOAST NOTIFICATION -->
-  <div id="toast" class="toast">
-    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-      <path d="M20 6L9 17l-5-5" />
-    </svg>
-    <span id="toast-text">¡Correo copiado al portapapeles!</span>
-  </div>
+    <div class="card">
+      <div class="card-title">Habilidades técnicas</div>
+      <div class="skill-group">
+        <div class="skill-group-label">Lenguajes</div>
+        <div class="skill-tags">
+          <span class="tag cyan">Python</span>
+          <span class="tag cyan">Bash</span>
+          <span class="tag cyan">SQL</span>
+          <span class="tag cyan">Arch Linux</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Ciberseguridad</div>
+        <div class="skill-tags">
+          <span class="tag">Análisis de logs</span>
+          <span class="tag">Detección anomalías</span>
+          <span class="tag">Linux</span>
+          <span class="tag">Soporte N2</span>
+          <span class="tag">Redes</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Ciencia de datos</div>
+        <div class="skill-tags">
+          <span class="tag purple">Pandas</span>
+          <span class="tag purple">NumPy</span>
+          <span class="tag purple">Matplotlib</span>
+          <span class="tag purple">Jupyter</span>
+        </div>
+      </div>
+      <div class="skill-group">
+        <div class="skill-group-label">Herramientas</div>
+        <div class="skill-tags">
+          <span class="tag green">Git</span>
+          <span class="tag green">GitHub</span>
+          <span class="tag green">VS Code</span>
+          <span class="tag green">Linux</span>
+        </div>
+      </div>
+    </div>
 
-  <!-- JAVASCRIPT -->
-  <script>
-    // Copiar correo al portapapeles con feedback
-    function copyEmail(buttonElement) {
-      const email = "dr8836712@gmail.com";
-      navigator.clipboard.writeText(email).then(() => {
-        showToast("¡Correo copiado al portapapeles: " + email + "!");
-      }).catch(() => {
-        // Fallback manual
-        const tempInput = document.createElement("input");
-        tempInput.value = email;
-        document.body.appendChild(tempInput);
-        tempInput.select();
-        document.execCommand("copy");
-        document.body.removeChild(tempInput);
-        showToast("¡Correo copiado al portapapeles!");
-      });
-    }
+    <div class="card">
+      <div class="card-title">Idiomas</div>
+      <div class="lang-row">
+        <span style="font-size:13px">Español</span>
+        <div class="lang-level">
+          <div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);margin-bottom:14px;font-family:var(--mono)">Nativo</div>
+      <div class="lang-row">
+        <span style="font-size:13px">Inglés</span>
+        <div class="lang-level">
+          <div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot on"></div><div class="lang-dot"></div><div class="lang-dot"></div>
+        </div>
+      </div>
+      <div style="font-size:11px;color:var(--muted);font-family:var(--mono)">B1 — Certificado USA</div>
+    </div>
 
-    function showToast(message) {
-      const toast = document.getElementById("toast");
-      const toastText = document.getElementById("toast-text");
-      if (toast && toastText) {
-        toastText.textContent = message;
-        toast.classList.add("show");
-        setTimeout(() => {
-          toast.classList.remove("show");
-        }, 2800);
-      }
-    }
+  </aside>
 
-    // Filtro dinámico de proyectos
-    function filterProjects(category) {
-      const buttons = document.querySelectorAll(".filter-btn");
-      buttons.forEach(btn => btn.classList.remove("active"));
+  <!-- MAIN -->
+  <main>
 
-      // Activar botón correspondiente
-      const currentBtn = Array.from(buttons).find(b => {
-        const fn = b.getAttribute("onclick");
-        return fn && fn.includes("'" + category + "'");
-      });
-      if (currentBtn) currentBtn.classList.add("active");
+    <!-- 01 PERFIL -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">01</span>
+        <h2>Perfil</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="profile-text">
+        Tengo experiencia práctica en soporte técnico de nivel 2, administración de sistemas Linux, windows y desarrollo de proyectos en ciberseguridad y análisis de datos. Me interesa especialmente la detección de amenazas, el análisis forense de logs y los modelos de machine learning aplicados a datos reales. Busco una práctica donde pueda aportar y seguir aprendiendo en un entorno de trabajo real.
+      </div>
+    </div>
 
-      const cards = document.querySelectorAll(".project-card");
-      cards.forEach(card => {
-        if (category === "all" || card.getAttribute("data-category") === category) {
-          card.style.display = "block";
-          card.style.opacity = "0";
-          card.style.transform = "translateY(8px)";
-          setTimeout(() => {
-            card.style.transition = "opacity 0.25s ease, transform 0.25s ease";
-            card.style.opacity = "1";
-            card.style.transform = "translateY(0)";
-          }, 30);
-        } else {
-          card.style.display = "none";
-        }
-      });
-    }
+    <!-- 02 PROYECTOS -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">02</span>
+        <h2>Proyectos</h2>
+        <div class="section-line"></div>
+      </div>
 
-    // Descargar / Imprimir PDF
-    function downloadPDF() {
-      const btn = document.querySelector('.btn-download');
-      const originalHtml = btn.innerHTML;
-      btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="spin-icon"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg><span>Preparando...</span>';
-      btn.style.opacity = '0.75';
-      btn.style.pointerEvents = 'none';
+      <div class="project-card cyber">
+        <div class="project-header">
+          <span class="project-name">Log Analyzer</span>
+          <span class="project-type cyber">Ciberseguridad</span>
+        </div>
+        <p class="project-desc">Herramienta en Python para análisis automatizado de archivos de log del sistema, orientada a la detección temprana de amenazas.</p>
+        <ul class="project-bullets">
+          <li>Parseo y filtrado de logs para identificar accesos no autorizados y patrones sospechosos.</li>
+          <li>Detección de anomalías mediante análisis de frecuencia y correlación de eventos.</li>
+          <li>Generación de reportes estructurados con resumen de incidentes detectados.</li>
+        </ul>
+        <a class="project-link" href="https://github.com/danielreyes04/Log-Analyzer" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver repositorio
+        </a>
+      </div>
 
-      setTimeout(() => {
-        window.print();
-        btn.innerHTML = originalHtml;
-        btn.style.opacity = '';
-        btn.style.pointerEvents = '';
-      }, 400);
-    }
-  </script>
+      <div class="project-card data">
+        <div class="project-header">
+          <span class="project-name">Telecom Customer Data Analysis</span>
+          <span class="project-type data">Data Science</span>
+        </div>
+        <p class="project-desc">Análisis completo del comportamiento de clientes en una empresa de telecomunicaciones para predecir y reducir el churn.</p>
+        <ul class="project-bullets">
+          <li>Exploración y limpieza de dataset real con variables demográficas y de uso del servicio.</li>
+          <li>Implementación de modelos de clasificación para predicción de abandono de clientes.</li>
+          <li>Segmentación de clientes y visualización de patrones con Matplotlib y Seaborn.</li>
+        </ul>
+        <a class="project-link" href="https://github.com/danielreyes04/Telecom_customer_data_analysis" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver repositorio
+        </a>
+      </div>
+
+      <div class="project-card eda">
+        <div class="project-header">
+          <span class="project-name">Análisis de Datos (EDA)</span>
+          <span class="project-type eda">Data Science</span>
+        </div>
+        <p class="project-desc">Análisis exploratorio de datasets con Jupyter Notebook, aplicando técnicas de preprocesamiento y transformación de variables.</p>
+        <ul class="project-bullets">
+          <li>Estandarización de variables numéricas y codificación de variables categóricas.</li>
+          <li>Visualización de distribuciones, correlaciones y outliers.</li>
+          <li>Documentación del proceso analítico reproducible en notebooks.</li>
+        </ul>
+        <a class="project-link" href="https://github.com/danielreyes04/Analsis-de-datos" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver repositorio
+        </a>
+      </div>
+    </div>
+
+    <!-- 03 EXPERIENCIA -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">03</span>
+        <h2>Experiencia</h2>
+        <div class="section-line"></div>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Técnico de Soporte</div>
+            <div class="exp-company">Pear Solutions SAS</div>
+          </div>
+          <div class="exp-date">Dic 2024 – Feb 2025</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Atención a usuarios como agente Nivel 2 en mesa de ayuda.</li>
+          <li>Instalación y configuración de software, hardware e imágenes de sistemas operativos.</li>
+          <li>Mantenimiento preventivo y correctivo de equipos de cómputo.</li>
+          <li>Solución de incidentes en redes, servidores e impresión. Entrega de informes de gestión.</li>
+        </ul>
+      </div>
+
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Técnico de Equipos Informáticos</div>
+            <div class="exp-company">Odontoestética Dra. Xiomara Reyes</div>
+          </div>
+          <div class="exp-date">Ene 2023 – Oct 2024</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Mantenimiento, formateo y borrado seguro de equipos de cómputo.</li>
+          <li>Desarrollo y mantenimiento de la aplicación <strong style="color:var(--text)">ODONTOSAM</strong> — sistema de agendamiento y gestión de historias clínicas.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 04 EDUCACIÓN -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">04</span>
+        <h2>Educación</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="exp-card">
+        <div class="exp-header">
+          <div>
+            <div class="exp-role">Ingeniería en Ciencias de la Computación</div>
+            <div class="exp-company">Universidad Sergio Arboleda · Bogotá</div>
+          </div>
+          <div class="exp-date">8° Semestre · En curso</div>
+        </div>
+        <ul class="exp-bullets">
+          <li>Énfasis en seguridad informática, sistemas operativos y ciencia de datos.</li>
+          <li>Proyectos académicos en Python, administración Linux y análisis de datos.</li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- 05 CERTIFICACIONES -->
+    <div class="section">
+      <div class="section-head">
+        <span class="section-num">05</span>
+        <h2>Certificaciones</h2>
+        <div class="section-line"></div>
+      </div>
+      <div class="cert-grid">
+        <div class="cert-card">
+          <div class="cert-issuer">Cisco · U. Sergio Arboleda</div>
+          <div class="cert-name">Data Science Essentials with Python</div>
+          <div class="cert-date">Noviembre 2025</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-issuer">DataCamp</div>
+          <div class="cert-name">Python Intermedio</div>
+          <div class="cert-date">Enero 2026 · 4 horas</div>
+        </div>
+        <div class="cert-card">
+          <div class="cert-issuer">U. Sergio Arboleda — Centro de Idiomas</div>
+          <div class="cert-name">Inglés Nivel B1</div>
+          <div class="cert-date">Diciembre 2025</div>
+        </div>
+        <div class="cert-card" style="border-style:dashed;opacity:0.5;display:flex;align-items:center;justify-content:center;">
+          <span style="font-family:var(--mono);font-size:11px;color:var(--muted)">+ en progreso...</span>
+        </div>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<footer class="footer">
+  <span style="color:var(--accent)">danielreyes04</span> · Bogotá, Colombia · 2026 · Disponible para prácticas profesionales
+</footer>
+
+<script>
+function downloadPDF() {
+  const btn = document.querySelector('.btn-download');
+  const orig = btn.innerHTML;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;animation:spin 1s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Generando...';
+  btn.style.opacity = '0.7';
+  btn.style.pointerEvents = 'none';
+  const s = document.createElement('style');
+  s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
+  document.head.appendChild(s);
+  setTimeout(() => {
+    window.print();
+    btn.innerHTML = orig;
+    btn.style.opacity = '';
+    btn.style.pointerEvents = '';
+    s.remove();
+  }, 400);
+}
+</script>
 
 </body>
-
 </html>
