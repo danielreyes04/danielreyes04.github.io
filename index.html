@@ -9,15 +9,16 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
 
 <!-- TOP BAR -->
 <nav class="topbar">
   <div class="topbar-logo">dr<span>@</span>portfolio<span>:~$</span></div>
-  <button class="btn-download" onclick="downloadPDF()">
+  <button class="btn-download" id="btn-pdf" onclick="generateATSPdf()">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4M7 10l5 5 5-5M12 15V3"/></svg>
-    Descargar PDF
+    Descargar CV (ATS PDF)
   </button>
 </nav>
 
@@ -332,22 +333,262 @@
 </footer>
 
 <script>
-function downloadPDF() {
-  const btn = document.querySelector('.btn-download');
-  const orig = btn.innerHTML;
-  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px;animation:spin 1s linear infinite"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Generando...';
-  btn.style.opacity = '0.7';
-  btn.style.pointerEvents = 'none';
-  const s = document.createElement('style');
-  s.textContent = '@keyframes spin{to{transform:rotate(360deg)}}';
-  document.head.appendChild(s);
-  setTimeout(() => {
-    window.print();
-    btn.innerHTML = orig;
-    btn.style.opacity = '';
-    btn.style.pointerEvents = '';
-    s.remove();
-  }, 400);
+function generateATSPdf() {
+  const btn = document.getElementById('btn-pdf');
+  const origHTML = btn.innerHTML;
+  btn.innerHTML = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/></svg> Generando...';
+  btn.disabled = true;
+
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF({ unit: 'mm', format: 'a4', compress: true });
+
+  const pageW = 210;
+  const pageH = 297;
+  const ml = 18;   // margin left
+  const mr = 18;   // margin right
+  const contentW = pageW - ml - mr;
+  let y = 20;
+
+  const colors = {
+    black:   [0, 0, 0],
+    darkGray:[40, 40, 40],
+    gray:    [80, 80, 80],
+    light:   [120, 120, 120],
+    rule:    [200, 200, 200],
+  };
+
+  // ── helpers ──────────────────────────────────────────────────────────────
+  function checkPage(needed = 8) {
+    if (y + needed > pageH - 15) {
+      doc.addPage();
+      y = 18;
+    }
+  }
+
+  function rule(color = colors.rule, thickness = 0.3) {
+    doc.setDrawColor(...color);
+    doc.setLineWidth(thickness);
+    doc.line(ml, y, pageW - mr, y);
+    y += 4;
+  }
+
+  function sectionTitle(title) {
+    checkPage(12);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(10);
+    doc.setTextColor(...colors.black);
+    doc.text(title.toUpperCase(), ml, y);
+    y += 1.5;
+    rule(colors.rule, 0.4);
+  }
+
+  function bullet(text, indent = 4) {
+    checkPage(6);
+    const lines = doc.splitTextToSize('• ' + text, contentW - indent);
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9.5);
+    doc.setTextColor(...colors.darkGray);
+    doc.text(lines, ml + indent, y);
+    y += lines.length * 5 + 1;
+  }
+
+  function bodyText(text, opts = {}) {
+    const { bold = false, size = 9.5, color = colors.darkGray, indent = 0, gap = 1.5 } = opts;
+    checkPage(6);
+    doc.setFont('helvetica', bold ? 'bold' : 'normal');
+    doc.setFontSize(size);
+    doc.setTextColor(...color);
+    const lines = doc.splitTextToSize(text, contentW - indent);
+    doc.text(lines, ml + indent, y);
+    y += lines.length * 5 + gap;
+  }
+
+  function twoCol(left, right, opts = {}) {
+    const { boldLeft = false, boldRight = false, sizeLeft = 9.5, sizeRight = 9, colorLeft = colors.darkGray, colorRight = colors.light } = opts;
+    checkPage(6);
+    doc.setFont('helvetica', boldLeft ? 'bold' : 'normal');
+    doc.setFontSize(sizeLeft);
+    doc.setTextColor(...colorLeft);
+    doc.text(left, ml, y);
+    doc.setFont('helvetica', boldRight ? 'bold' : 'normal');
+    doc.setFontSize(sizeRight);
+    doc.setTextColor(...colorRight);
+    doc.text(right, pageW - mr, y, { align: 'right' });
+  }
+
+  // ── NAME & CONTACT ───────────────────────────────────────────────────────
+  doc.setFont('helvetica', 'bold');
+  doc.setFontSize(22);
+  doc.setTextColor(...colors.black);
+  doc.text('Daniel Steven Reyes Pinilla', ml, y);
+  y += 8;
+
+  doc.setFont('helvetica', 'normal');
+  doc.setFontSize(9);
+  doc.setTextColor(...colors.gray);
+  const contactLine = 'Bogota D.C., Colombia  |  dr8836712@gmail.com  |  313 297 9103  |  github.com/danielreyes04';
+  doc.text(contactLine, ml, y);
+  y += 3;
+  rule(colors.rule, 0.5);
+
+  // ── PERFIL ───────────────────────────────────────────────────────────────
+  sectionTitle('Perfil Profesional');
+  bodyText(
+    'Estudiante de Ingenieria en Ciencias de la Computacion e Inteligencia Artificial (9 semestre, ' +
+    'Universidad Sergio Arboleda). Experiencia practica en soporte tecnico nivel 2, administracion de ' +
+    'sistemas Linux y Windows, arquitectura cloud con AWS (EC2, Cloud9, RDS, S3, IAM) y desarrollo de ' +
+    'proyectos en ciberseguridad y analisis de datos. Busco una practica donde aplicar mis habilidades ' +
+    'y seguir aprendiendo en un entorno de trabajo real.',
+    { color: colors.darkGray }
+  );
+  y += 2;
+
+  // ── HABILIDADES TECNICAS ─────────────────────────────────────────────────
+  sectionTitle('Habilidades Tecnicas');
+
+  const skills = [
+    ['Cloud (AWS)', 'EC2, Cloud9, Amazon RDS, S3, IAM'],
+    ['Lenguajes',   'Python, Bash, SQL'],
+    ['Ciberseguridad', 'Analisis de logs, Deteccion de anomalias, Linux, Soporte N2, Redes'],
+    ['Ciencia de Datos', 'Pandas, NumPy, Matplotlib, Seaborn, Jupyter Notebook'],
+    ['Herramientas', 'Git, GitHub, VS Code, Linux (Arch)'],
+    ['Idiomas',      'Espanol (nativo), Ingles B1 (certificado)'],
+  ];
+
+  skills.forEach(([label, value]) => {
+    checkPage(6);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(...colors.darkGray);
+    doc.text(label + ': ', ml, y);
+    const labelW = doc.getTextWidth(label + ': ');
+    doc.setFont('helvetica', 'normal');
+    doc.setTextColor(...colors.gray);
+    const valueLines = doc.splitTextToSize(value, contentW - labelW);
+    doc.text(valueLines[0], ml + labelW, y);
+    y += 5;
+    if (valueLines.length > 1) {
+      for (let i = 1; i < valueLines.length; i++) {
+        doc.text(valueLines[i], ml + labelW, y);
+        y += 5;
+      }
+    }
+  });
+  y += 2;
+
+  // ── EXPERIENCIA ──────────────────────────────────────────────────────────
+  sectionTitle('Experiencia Laboral');
+
+  // Job 1
+  checkPage(8);
+  twoCol('Tecnico de Soporte', 'Dic 2024 – Feb 2025', { boldLeft: true, sizeLeft: 10 });
+  y += 5.5;
+  bodyText('Pear Solutions SAS — Bogota, Colombia', { color: colors.gray, size: 9 });
+  bullet('Atencion a usuarios como agente Nivel 2 en mesa de ayuda.');
+  bullet('Instalacion y configuracion de software, hardware e imagenes de sistemas operativos.');
+  bullet('Mantenimiento preventivo y correctivo de equipos de computo.');
+  bullet('Solucion de incidentes en redes, servidores e impresion. Entrega de informes de gestion.');
+  y += 2;
+
+  // Job 2
+  checkPage(8);
+  twoCol('Tecnico de Equipos Informaticos', 'Ene 2023 – Oct 2024', { boldLeft: true, sizeLeft: 10 });
+  y += 5.5;
+  bodyText('Odontostetica Dra. Xiomara Reyes — Bogota, Colombia', { color: colors.gray, size: 9 });
+  bullet('Mantenimiento, formateo y borrado seguro de equipos de computo.');
+  bullet('Desarrollo y mantenimiento de ODONTOSAM: sistema de agendamiento y gestion de historias clinicas.');
+  y += 2;
+
+  // ── PROYECTOS ────────────────────────────────────────────────────────────
+  sectionTitle('Proyectos');
+
+  const projects = [
+    {
+      name: 'Log Analyzer',
+      type: 'Ciberseguridad · Python',
+      url:  'github.com/danielreyes04/Log-Analyzer',
+      bullets: [
+        'Herramienta en Python para analisis automatizado de logs orientada a deteccion temprana de amenazas.',
+        'Parseo y filtrado de logs para identificar accesos no autorizados y patrones sospechosos.',
+        'Deteccion de anomalias mediante analisis de frecuencia y correlacion de eventos.',
+        'Generacion de reportes estructurados con resumen de incidentes detectados.',
+      ],
+    },
+    {
+      name: 'Telecom Customer Data Analysis',
+      type: 'Data Science · Python',
+      url:  'github.com/danielreyes04/Telecom_customer_data_analysis',
+      bullets: [
+        'Analisis completo del comportamiento de clientes en telecomunicaciones para predecir y reducir el churn.',
+        'Exploracion y limpieza de dataset real con variables demograficas y de uso del servicio.',
+        'Implementacion de modelos de clasificacion para prediccion de abandono de clientes.',
+        'Segmentacion de clientes y visualizacion de patrones con Matplotlib y Seaborn.',
+      ],
+    },
+    {
+      name: 'Analisis de Datos (EDA)',
+      type: 'Data Science · Jupyter',
+      url:  'github.com/danielreyes04/Analsis-de-datos',
+      bullets: [
+        'Analisis exploratorio de datasets con Jupyter Notebook aplicando preprocesamiento y transformacion.',
+        'Estandarizacion de variables numericas y codificacion de variables categoricas.',
+        'Visualizacion de distribuciones, correlaciones y outliers.',
+      ],
+    },
+  ];
+
+  projects.forEach(p => {
+    checkPage(10);
+    twoCol(p.name, p.type, { boldLeft: true, sizeLeft: 10, colorRight: colors.gray });
+    y += 5.5;
+    bodyText(p.url, { color: colors.light, size: 8.5, gap: 2 });
+    p.bullets.forEach(b => bullet(b));
+    y += 2;
+  });
+
+  // ── EDUCACION ────────────────────────────────────────────────────────────
+  sectionTitle('Educacion');
+  checkPage(10);
+  twoCol(
+    'Ingenieria en Ciencias de la Computacion e Inteligencia Artificial',
+    '9 Semestre · En curso',
+    { boldLeft: true, sizeLeft: 10 }
+  );
+  y += 5.5;
+  bodyText('Universidad Sergio Arboleda · Bogota, Colombia', { color: colors.gray, size: 9 });
+  bullet('Enfasis en seguridad informatica, sistemas operativos, cloud computing y ciencia de datos.');
+  bullet('Proyectos academicos en Python, administracion Linux y analisis de datos.');
+  y += 2;
+
+  // ── CERTIFICACIONES ──────────────────────────────────────────────────────
+  sectionTitle('Certificaciones');
+
+  const certs = [
+    ['Fundamentos de AWS (EC2, Cloud9, RDS, S3, IAM)', 'AWS / Cloud', 'En progreso · 2026'],
+    ['Data Science Essentials with Python',            'Cisco · U. Sergio Arboleda', 'Noviembre 2025'],
+    ['Python Intermedio (4 horas)',                    'DataCamp', 'Enero 2026'],
+    ['Ingles Nivel B1',                               'U. Sergio Arboleda — Centro de Idiomas', 'Diciembre 2025'],
+  ];
+
+  certs.forEach(([name, issuer, date]) => {
+    checkPage(7);
+    doc.setFont('helvetica', 'bold');
+    doc.setFontSize(9.5);
+    doc.setTextColor(...colors.darkGray);
+    doc.text(name, ml, y);
+    y += 4.5;
+    doc.setFont('helvetica', 'normal');
+    doc.setFontSize(9);
+    doc.setTextColor(...colors.gray);
+    doc.text(issuer + '  ·  ' + date, ml, y);
+    y += 5.5;
+  });
+
+  // ── SAVE ─────────────────────────────────────────────────────────────────
+  doc.save('Daniel_Reyes_Pinilla_CV_ATS.pdf');
+
+  btn.innerHTML = origHTML;
+  btn.disabled = false;
 }
 </script>
 
