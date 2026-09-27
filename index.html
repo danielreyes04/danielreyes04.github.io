@@ -3,12 +3,27 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Daniel Reyes | Ingeniería & Ciencia de Datos</title>
-  <meta name="description" content="Portafolio de Daniel Steven Reyes Pinilla — Ingeniería de Datos, Ciencia de Datos y Análisis de Datos. Python · SQL · AWS · Machine Learning.">
+  <title>Daniel Reyes | Backend · Datos · Ciberseguridad</title>
+  <meta name="description" content="Portafolio de Daniel Steven Reyes Pinilla — Backend, Ingeniería de Datos, Ciencia de Datos y Ciberseguridad. Python · FastAPI · SQL · AWS · Machine Learning · Seguridad de Redes.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Clases nuevas para tarjetas Backend y Cloud */
+    .project-card.backend::before { background: #3b82f6; }
+    .project-card.cloud::before   { background: #06b6d4; }
+    .project-type.backend { background: rgba(59,130,246,0.1);  color: #60a5fa; border: 1px solid rgba(59,130,246,0.25); }
+    .project-type.cloud   { background: rgba(6,182,212,0.1);   color: #22d3ee; border: 1px solid rgba(6,182,212,0.25);  }
+    .tag.blue { border-color: rgba(59,130,246,0.3); color: #60a5fa; }
+    .tag.red  { border-color: rgba(239,68,68,0.3);  color: #f87171; }
+    @media print {
+      .project-card.backend::before { background: #3b82f6 !important; }
+      .project-card.cloud::before   { background: #06b6d4 !important; }
+      .project-type.backend { background: rgba(59,130,246,0.1) !important; color: #60a5fa !important; border-color: rgba(59,130,246,0.25) !important; }
+      .project-type.cloud   { background: rgba(6,182,212,0.1) !important;  color: #22d3ee !important; border-color: rgba(6,182,212,0.25) !important;  }
+    }
+  </style>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 </head>
 <body>
@@ -27,7 +42,7 @@
   <div>
     <div class="hero-tag"><span class="status-dot"></span> Disponible para prácticas · Bogotá, Colombia</div>
     <h1>Daniel <span class="dim">Steven</span><br>Reyes Pinilla</h1>
-    <p class="hero-sub">Estudiante de Ingeniería en Ciencias de la Computación e IA (9° semestre, U. Sergio Arboleda). Construyo pipelines de datos, modelos predictivos y dashboards analíticos con Python, SQL y AWS. Busco prácticas en Ingeniería de Datos, Ciencia de Datos o Análisis de Datos.</p>
+    <p class="hero-sub">Estudiante de Ingeniería en Ciencias de la Computación e IA (9° semestre, U. Sergio Arboleda). Construyo APIs backend con arquitectura hexagonal, pipelines de datos y modelos predictivos, y tengo experiencia práctica en análisis de redes y seguridad. Busco prácticas en Backend, Datos, Ciencia de Datos o Ciberseguridad.</p>
     <div class="hero-links">
       <a class="pill" href="https://github.com/danielreyes04" target="_blank">
         <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.531 1.032 1.531 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/></svg>
@@ -86,7 +101,7 @@
       <div class="card-title">Habilidades técnicas</div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Lenguajes & Datos</div>
+        <div class="skill-group-label">Lenguajes &amp; Datos</div>
         <div class="skill-tags">
           <span class="tag cyan">Python</span>
           <span class="tag cyan">SQL</span>
@@ -95,7 +110,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Análisis & ML</div>
+        <div class="skill-group-label">Análisis &amp; ML</div>
         <div class="skill-tags">
           <span class="tag purple">Pandas</span>
           <span class="tag purple">NumPy</span>
@@ -107,7 +122,7 @@
       </div>
 
       <div class="skill-group">
-        <div class="skill-group-label">Cloud & Bases de datos</div>
+        <div class="skill-group-label">Cloud &amp; Bases de datos</div>
         <div class="skill-tags">
           <span class="tag orange">AWS S3</span>
           <span class="tag orange">AWS Glue</span>
@@ -130,13 +145,37 @@
       </div>
 
       <div class="skill-group">
+        <div class="skill-group-label">Backend &amp; Cloud</div>
+        <div class="skill-tags">
+          <span class="tag blue">FastAPI</span>
+          <span class="tag blue">SQLAlchemy</span>
+          <span class="tag blue">Pydantic</span>
+          <span class="tag blue">APIs REST</span>
+          <span class="tag blue">Arq. Hexagonal</span>
+          <span class="tag blue">Docker</span>
+          <span class="tag blue">AWS EC2</span>
+          <span class="tag blue">AWS Lambda</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
+        <div class="skill-group-label">Ciberseguridad</div>
+        <div class="skill-tags">
+          <span class="tag red">Wireshark</span>
+          <span class="tag red">Nmap</span>
+          <span class="tag red">Metasploit</span>
+          <span class="tag red">Kali Linux</span>
+          <span class="tag red">iptables</span>
+        </div>
+      </div>
+
+      <div class="skill-group">
         <div class="skill-group-label">Herramientas</div>
         <div class="skill-tags">
           <span class="tag green">Git</span>
           <span class="tag green">GitHub</span>
           <span class="tag green">VS Code</span>
           <span class="tag green">Linux</span>
-          <span class="tag green">Claude AI</span>
         </div>
       </div>
     </div>
@@ -172,7 +211,7 @@
         <div class="section-line"></div>
       </div>
       <div class="profile-text">
-        Estudiante de Ingeniería en Ciencias de la Computación e IA (9° semestre) con experiencia práctica en análisis de datos, modelado predictivo y desarrollo de sistemas con bases de datos relacionales. Manejo Python (Pandas, NumPy, Scikit-learn), SQL y servicios AWS orientados a datos (S3, RDS, EC2). He desarrollado proyectos de extremo a extremo: desde la limpieza y transformación de datos hasta la construcción de modelos de clasificación y visualizaciones analíticas. Busco prácticas en <strong style="color:var(--accent)">Ingeniería de Datos</strong>, <strong style="color:var(--accent)">Ciencia de Datos</strong> o <strong style="color:var(--accent)">Análisis de Datos</strong> donde pueda aportar valor desde el primer día.
+        Estudiante de Ingeniería en Ciencias de la Computación e IA (9° semestre) con formación transversal en desarrollo backend, ingeniería y ciencia de datos, y ciberseguridad. He construido APIs REST con arquitectura hexagonal desplegadas en AWS, pipelines de datos y modelos de clasificación con AUC-ROC de 0.87, y tengo experiencia práctica con herramientas de análisis de redes y pruebas de penetración (Nmap, Wireshark, Metasploit, Kali Linux). Busco prácticas en <strong style="color:var(--accent)">Backend</strong>, <strong style="color:var(--accent)">Datos</strong>, <strong style="color:var(--accent)">Ciencia de Datos</strong> o <strong style="color:var(--accent)">Ciberseguridad</strong> donde pueda aportar valor desde el primer día.
       </div>
     </div>
 
@@ -184,6 +223,27 @@
         <div class="section-line"></div>
       </div>
 
+      <!-- 1. Gestión de Vuelos (Backend · APIs REST) -->
+      <div class="project-card backend">
+        <div class="project-header">
+          <span class="project-name">Gestión de Vuelos — Arquitectura Hexagonal</span>
+          <span class="project-type backend">Backend · APIs REST</span>
+        </div>
+        <p class="project-desc">Backend de reservas de vuelos con arquitectura hexagonal (dominio, casos de uso y adaptadores separados), pensado para una aerolínea regional.</p>
+        <ul class="project-bullets">
+          <li>Bloqueo temporal de asientos y control de concurrencia (optimistic locking) para evitar sobreventa; respuesta 409 Conflict ante colisiones de reserva.</li>
+          <li>Endpoints REST para búsqueda de vuelos, disponibilidad de asientos, creación/confirmación de pago y cancelación de reservas, con auditoría de eventos.</li>
+          <li>Diseñado para despliegue en AWS con Aurora PostgreSQL detrás de un Application Load Balancer.</li>
+          <li>Buenas prácticas de seguridad: variables sensibles fuera del código, restricción de CORS, credenciales pensadas para AWS Secrets Manager.</li>
+        </ul>
+        <div class="project-stack">Python · FastAPI · SQLAlchemy · PostgreSQL/Aurora · Pydantic</div>
+        <a class="project-link" href="https://github.com/danielreyes04/Gestion-vuelos-aws" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver repositorio
+        </a>
+      </div>
+
+      <!-- 2. Telecom Churn (Data Science · ML) -->
       <div class="project-card data">
         <div class="project-header">
           <span class="project-name">Telecom Customer Churn Prediction</span>
@@ -203,25 +263,7 @@
         </a>
       </div>
 
-      <div class="project-card eda">
-        <div class="project-header">
-          <span class="project-name">Pipeline de Análisis Exploratorio (EDA)</span>
-          <span class="project-type eda">Análisis de Datos</span>
-        </div>
-        <p class="project-desc">Pipeline reproducible de análisis exploratorio en Jupyter Notebook para múltiples datasets, enfocado en preparación de datos de calidad lista para modelado.</p>
-        <ul class="project-bullets">
-          <li>Diseño de pipeline modular de preprocesamiento: detección de outliers (IQR), imputación y normalización de variables.</li>
-          <li>Análisis de correlaciones con heatmaps y detección de multicolinealidad para selección de features.</li>
-          <li>Generación automatizada de reportes de calidad de datos: % nulos, distribuciones y estadísticos descriptivos por columna.</li>
-          <li>Documentación reproducible con notebooks estructurados y exportación de datasets limpios.</li>
-        </ul>
-        <div class="project-stack">Python · Pandas · NumPy · Matplotlib · Seaborn · Jupyter</div>
-        <a class="project-link" href="https://github.com/danielreyes04/Analsis-de-datos" target="_blank">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
-          Ver repositorio
-        </a>
-      </div>
-
+      <!-- 3. Log Analyzer (Ingeniería de Datos) -->
       <div class="project-card cyber">
         <div class="project-header">
           <span class="project-name">Log Analyzer — Pipeline de Datos de Seguridad</span>
@@ -240,6 +282,46 @@
           Ver repositorio
         </a>
       </div>
+
+      <!-- 4. NLP Encoding (Backend · Cloud) -->
+      <div class="project-card cloud">
+        <div class="project-header">
+          <span class="project-name">NLP Encoding &amp; Pipeline — Despliegue Dual AWS</span>
+          <span class="project-type cloud">Backend · Cloud</span>
+        </div>
+        <p class="project-desc">API REST de procesamiento de lenguaje natural en español con arquitectura desacoplada para despliegue dual, persistente y serverless.</p>
+        <ul class="project-bullets">
+          <li>Pipeline NLP completo: limpieza, lematización, etiquetado POS, dependencias sintácticas (árboles con spaCy displacy) y reconocimiento de entidades nombradas (NER).</li>
+          <li>Codificación vectorial de corpus con tres métodos: One-Hot, Bag of Words y TF-IDF.</li>
+          <li>Arquitectura desacoplada: lógica de negocio compartida con adaptadores independientes para despliegue persistente en EC2/Cloud9 y despliegue serverless en Lambda vía contenedor Docker (Mangum).</li>
+          <li>Suite de pruebas automatizadas (pytest) para el pipeline y los endpoints.</li>
+        </ul>
+        <div class="project-stack">Python · FastAPI · Docker · AWS EC2 · AWS Lambda (Mangum)</div>
+        <a class="project-link" href="https://github.com/danielreyes04/nlp-encoding-aws" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver repositorio
+        </a>
+      </div>
+
+      <!-- 5. EDA Pipeline (Análisis de Datos) -->
+      <div class="project-card eda">
+        <div class="project-header">
+          <span class="project-name">Pipeline de Análisis Exploratorio (EDA)</span>
+          <span class="project-type eda">Análisis de Datos</span>
+        </div>
+        <p class="project-desc">Pipeline reproducible de análisis exploratorio en Jupyter Notebook para múltiples datasets, enfocado en preparación de datos de calidad lista para modelado.</p>
+        <ul class="project-bullets">
+          <li>Diseño de pipeline modular de preprocesamiento: detección de outliers (IQR), imputación y normalización de variables.</li>
+          <li>Análisis de correlaciones con heatmaps y detección de multicolinealidad para selección de features.</li>
+          <li>Generación automatizada de reportes de calidad de datos: % nulos, distribuciones y estadísticos descriptivos por columna.</li>
+          <li>Documentación reproducible con notebooks estructurados y exportación de datasets limpios.</li>
+        </ul>
+        <div class="project-stack">Python · Pandas · NumPy · Matplotlib · Seaborn · Jupyter</div>
+        <a class="project-link" href="https://github.com/danielreyes04/Analsis-de-datos" target="_blank">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6M15 3h6v6M10 14L21 3"/></svg>
+          Ver repositorio
+        </a>
+      </div>
     </div>
 
     <!-- 03 EXPERIENCIA -->
@@ -253,7 +335,7 @@
       <div class="exp-card">
         <div class="exp-header">
           <div>
-            <div class="exp-role">Desarrollador & Analista de Datos — ODONTOSAM</div>
+            <div class="exp-role">Desarrollador &amp; Analista de Datos — ODONTOSAM</div>
             <div class="exp-company">Odontoestética Dra. Xiomara Reyes</div>
           </div>
           <div class="exp-date">Ene 2023 – Oct 2024</div>
@@ -300,6 +382,7 @@
         <ul class="exp-bullets">
           <li>Materias relevantes: Bases de Datos, Inteligencia Artificial, Machine Learning, Estadística, Sistemas Operativos, Cloud Computing.</li>
           <li>Proyectos académicos en Python, SQL, análisis de datos y administración Linux.</li>
+          <li>Línea de profundización electiva en Ciberseguridad y Datos.</li>
         </ul>
       </div>
     </div>
@@ -315,7 +398,7 @@
         <div class="cert-card cert-highlight">
           <div class="cert-issuer">AWS Academy</div>
           <div class="cert-name">AWS Academy Data Engineering</div>
-          <div class="cert-desc">S3, Glue, Lambda, Redshift, Kinesis, Athena · Data Lakes & Pipelines cloud</div>
+          <div class="cert-desc">S3, Glue, Lambda, Redshift, Kinesis, Athena · Data Lakes &amp; Pipelines cloud</div>
           <div class="cert-date">En progreso · Finalización 2026</div>
         </div>
         <div class="cert-card">
@@ -340,7 +423,7 @@
 </div>
 
 <footer class="footer">
-  <span style="color:var(--accent)">danielreyes04</span> · Bogotá, Colombia · 2026 · Disponible para prácticas en Datos
+  <span style="color:var(--accent)">danielreyes04</span> · Bogotá, Colombia · 2026 · Disponible para prácticas
 </footer>
 
 <script>
@@ -438,7 +521,7 @@ function generateATSPdf() {
   doc.setFont('helvetica', 'normal');
   doc.setFontSize(9.5);
   doc.setTextColor(...C.gray);
-  doc.text('Ingenieria de Datos · Ciencia de Datos · Analisis de Datos', ml, y);
+  doc.text('Backend · Datos · Ciencia de Datos · Ciberseguridad', ml, y);
   y += 5;
 
   doc.setFontSize(9);
@@ -451,11 +534,11 @@ function generateATSPdf() {
   sectionTitle('Perfil Profesional');
   bodyText(
     'Estudiante de Ingenieria en Ciencias de la Computacion e Inteligencia Artificial (9 semestre, ' +
-    'Universidad Sergio Arboleda). Experiencia practica en analisis de datos, modelado predictivo y ' +
-    'desarrollo de sistemas con bases de datos relacionales. Manejo Python (Pandas, NumPy, Scikit-learn), ' +
-    'SQL y servicios AWS orientados a datos (S3, RDS). He desarrollado proyectos end-to-end: desde limpieza ' +
-    'y transformacion de datos hasta modelos de clasificacion con AUC-ROC de 0.87 y visualizaciones analiticas. ' +
-    'Busco practicas en Ingenieria de Datos, Ciencia de Datos o Analisis de Datos.',
+    'Universidad Sergio Arboleda) con formacion transversal en desarrollo backend, ingenieria y ciencia ' +
+    'de datos, y ciberseguridad. He construido APIs REST con arquitectura hexagonal desplegadas en AWS, ' +
+    'pipelines de datos y modelos de clasificacion con AUC-ROC de 0.87, y tengo experiencia practica con ' +
+    'herramientas de analisis de redes y pruebas de penetracion (Nmap, Wireshark, Metasploit, Kali Linux). ' +
+    'Busco practicas en Backend, Datos, Ciencia de Datos o Ciberseguridad donde pueda aportar valor desde el primer dia.',
     { color: C.darkGray }
   );
 
@@ -467,7 +550,9 @@ function generateATSPdf() {
     ['Analisis & ML',      'Pandas, NumPy, Scikit-learn, XGBoost, Matplotlib, Seaborn, Jupyter Notebook'],
     ['Cloud & BD',         'AWS S3, AWS Glue, AWS Lambda, Amazon RDS, AWS EC2, MySQL'],
     ['Ing. de datos',      'ETL / Pipelines, Data Lake, Data Warehouse, limpieza de datos, parseo de logs, validacion de esquemas'],
-    ['Herramientas',       'Git, GitHub, VS Code, Linux, Claude AI (asistente de desarrollo)'],
+    ['Backend & Cloud',    'FastAPI, SQLAlchemy, Pydantic, APIs REST, Arquitectura Hexagonal, Docker, AWS EC2, AWS Lambda'],
+    ['Ciberseguridad',     'Wireshark, Nmap, Metasploit, Kali Linux, iptables'],
+    ['Herramientas',       'Git, GitHub, VS Code, Linux'],
     ['Idiomas',            'Espanol (nativo), Ingles B1 (certificado)'],
   ];
 
@@ -515,6 +600,18 @@ function generateATSPdf() {
 
   const projects = [
     {
+      name:  'Gestion de Vuelos — Arquitectura Hexagonal',
+      type:  'Backend · APIs REST',
+      url:   'github.com/danielreyes04/Gestion-vuelos-aws',
+      stack: 'Python · FastAPI · SQLAlchemy · PostgreSQL/Aurora · Pydantic',
+      bullets: [
+        'Bloqueo temporal de asientos y optimistic locking para evitar sobreventa; respuesta 409 Conflict ante colisiones de reserva.',
+        'Endpoints REST para busqueda de vuelos, disponibilidad, creacion/confirmacion de pago y cancelacion de reservas con auditoria de eventos.',
+        'Disenado para despliegue en AWS con Aurora PostgreSQL detras de un Application Load Balancer.',
+        'Buenas practicas de seguridad: variables sensibles fuera del codigo, restriccion CORS, credenciales para AWS Secrets Manager.',
+      ],
+    },
+    {
       name:  'Telecom Customer Churn Prediction',
       type:  'Data Science · ML',
       url:   'github.com/danielreyes04/Telecom_customer_data_analysis',
@@ -523,8 +620,30 @@ function generateATSPdf() {
         'Pipeline completo de ML sobre dataset real de +7 000 registros para prediccion de abandono de clientes.',
         'Preprocesamiento: imputacion de nulos, codificacion one-hot y estandarizacion con Scikit-learn.',
         'Entrenamiento de Regresion Logistica, Random Forest y XGBoost — mejor AUC-ROC: 0.87.',
-        'Segmentacion de clientes de alto riesgo mediante analisis de importancia de variables (feature importance).',
         'Visualizaciones: matriz de confusion, curvas ROC y distribucion de churn por segmento con Seaborn.',
+      ],
+    },
+    {
+      name:  'Log Analyzer — Pipeline de Datos de Seguridad',
+      type:  'Ingenieria de Datos',
+      url:   'github.com/danielreyes04/Log-Analyzer',
+      stack: 'Python · Pandas · Regex · JSON · CSV · Linux',
+      bullets: [
+        'Pipeline ETL en Python: parseo de logs no estructurados a DataFrames tabulares con validacion de esquema.',
+        'Deteccion de anomalias mediante analisis de frecuencia, correlacion temporal y z-score.',
+        'Generacion automatica de reportes JSON/CSV con conteos, severidad y resumen de eventos.',
+      ],
+    },
+    {
+      name:  'NLP Encoding & Pipeline — Despliegue Dual AWS',
+      type:  'Backend · Cloud',
+      url:   'github.com/danielreyes04/nlp-encoding-aws',
+      stack: 'Python · FastAPI · Docker · AWS EC2 · AWS Lambda (Mangum)',
+      bullets: [
+        'Pipeline NLP completo: limpieza, lematizacion, etiquetado POS, dependencias sintacticas (spaCy displacy) y NER.',
+        'Codificacion vectorial con tres metodos: One-Hot, Bag of Words y TF-IDF.',
+        'Arquitectura desacoplada con adaptadores independientes: despliegue persistente en EC2/Cloud9 y serverless en Lambda via Docker (Mangum).',
+        'Suite de pruebas automatizadas (pytest) para el pipeline y los endpoints.',
       ],
     },
     {
@@ -537,17 +656,6 @@ function generateATSPdf() {
         'Analisis de correlaciones con heatmaps y deteccion de multicolinealidad para seleccion de features.',
         'Generacion automatizada de reportes de calidad de datos: % nulos, distribuciones y estadisticos descriptivos.',
         'Exportacion de datasets limpios y documentacion reproducible en notebooks estructurados.',
-      ],
-    },
-    {
-      name:  'Log Analyzer — Pipeline de Datos de Seguridad',
-      type:  'Ingenieria de Datos',
-      url:   'github.com/danielreyes04/Log-Analyzer',
-      stack: 'Python · Pandas · Regex · JSON · CSV · Linux',
-      bullets: [
-        'Pipeline ETL en Python: parseo de logs no estructurados a DataFrames tabulares con validacion de esquema.',
-        'Deteccion de anomalias mediante analisis de frecuencia, correlacion temporal y z-score.',
-        'Generacion automatica de reportes JSON/CSV con conteos, severidad y resumen de eventos.',
       ],
     },
   ];
@@ -570,6 +678,7 @@ function generateATSPdf() {
   bodyText('Universidad Sergio Arboleda · Bogota, Colombia', { color: C.gray, size: 9 });
   bullet('Materias relevantes: Bases de Datos, Inteligencia Artificial, Machine Learning, Estadistica, Cloud Computing.');
   bullet('Proyectos academicos en Python, SQL, analisis de datos y administracion Linux.');
+  bullet('Linea de profundizacion electiva en Ciberseguridad y Datos.');
 
   // ── CERTIFICACIONES ───────────────────────────────────────────────────────
   sectionTitle('Certificaciones');
